@@ -1,8 +1,3 @@
-# gen_rate_ported
-
-이 리포는 업로드하신 노트북(`gen_rate_train_save_test_v2_4.ipynb`)을
-첨부 Git(`pv_pred_da_001-master`)의 **구조/흐름**과 유사한 형태로 **모듈화/CLI화**한 포팅 템플릿입니다.
-
 ## 구조
 
 ```
