@@ -1,0 +1,30 @@
+# 데이터/컬럼/학습 설정
+data:
+  time_col_candidates: ["datetime", "ts", "time", "date"]
+  target_col_candidates: ["gen_rate", "y", "y_true", "gen", "target", "power", "pwr"]
+  group_col_candidates: ["rto_id", "plant_id", "site_id", "ipp_id"]
+  # 로딩 시 CSV 옵션
+  parse_dates: true
+  tz: "Asia/Seoul"
+  # 시간 집계
+  resample_rule: "1H"
+  duplicate_agg: "mean"
+
+train:
+  model_type: "xgboost"
+  params:
+    n_estimators: 600
+    max_depth: 6
+    learning_rate: 0.05
+    subsample: 0.9
+    colsample_bytree: 0.9
+    reg_lambda: 1.0
+  scaler: true
+
+eval:
+  denom: "p95-p5"   # "p95-p5" | "mean>0" | "range" | float
+  kpx_threshold: 0.10
+  day_only:
+    enabled: true
+    start_hour: 6
+    end_hour: 18
