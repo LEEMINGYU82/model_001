@@ -65,7 +65,7 @@ python make_plots.py \
 
 ```
 
-## 노트북 → 모듈 매핑 (요약)
+## 모듈 (요약)
 
 - I/O/컬럼 탐지/시간 파싱: `src/common/io.py`
 - 시간 집계/보간/중복 처리: `src/data_process/preprocess.py`
