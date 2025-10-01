@@ -20,7 +20,6 @@ def fit_xgb(X: pd.DataFrame, y: pd.Series, params: Dict[str, Any], use_scaler: b
     model = XGBRegressor(**params)
     model.fit(X_train, y)
     # store feature names
-    model.feature_names_in_ = list(X.columns)
     return model, scaler
 
 def save_model(model, scaler, out_dir: str):

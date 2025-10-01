@@ -38,13 +38,31 @@ pip install -r requirements.txt
 vim configs/config.yaml
 
 # 3) 학습
-python main.py train --train_csv /path/to/train.csv --out_dir ./models
+python main.py train \
+  --train_csv /notebooks/model_1/data/lgai_trainset_c01_2023.csv \
+  --out_dir ./models
 
 # 4) 예측
-python main.py predict --test_csv /path/to/test.csv --model_dir ./models --out_csv ./outputs/preds.csv
+python main.py predict \
+  --test_csv /notebooks/model_1/data/lgai_testset_2025.csv \
+  --model_dir ./models \
+  --out_csv ./outputs/preds.csv
 
 # 5) 평가 (nMAE, nMAE(KPX))
-python main.py eval --truth_csv /path/to/test.csv --pred_csv ./outputs/preds.csv --report ./outputs/metrics.json
+python main.py eval \
+  --pred_csv ./outputs/preds.csv \
+  --report ./outputs/metrics.json
+
+# 5) 플롯 (선택)
+# Day-only(06–18시), 주간 눈금, 와이드 차트, 지표 표기
+
+python make_plots.py \
+  --pred_csv ./outputs/preds.csv \
+  --out_dir ./outputs/plots \
+  --day_only --start_hour 6 --end_hour 18 \
+  --locator week --fig_w 22 --fig_h 3.5 \
+  --annotate
+
 ```
 
 ## 노트북 → 모듈 매핑 (요약)

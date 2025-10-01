@@ -11,20 +11,25 @@ data:
   duplicate_agg: "mean"
 
 train:
-  model_type: "xgboost"
   params:
-    n_estimators: 600
+    n_estimators: 400
     max_depth: 6
     learning_rate: 0.05
-    subsample: 0.9
-    colsample_bytree: 0.9
+    subsample: 0.8
+    colsample_bytree: 0.8
     reg_lambda: 1.0
   scaler: true
 
 eval:
-  denom: "p95-p5"   # "p95-p5" | "mean>0" | "range" | float
-  kpx_threshold: 0.10
+  denom: "p95-p5"
+  kpx:
+    mode: "rate"          # "rate"(gen_rate 0~1) | "capacity"(kW)
+    threshold: 0.001      # 0.1% = 0.001
+    pacp_col: "pacp"      # capacity 모드일 때 설비용량 칼럼명
+
   day_only:
     enabled: true
     start_hour: 6
     end_hour: 18
+
+
