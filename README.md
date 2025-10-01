@@ -53,7 +53,7 @@ python main.py eval \
   --pred_csv ./outputs/preds.csv \
   --report ./outputs/metrics.json
 
-# 5) 플롯 (선택)
+# 6) 플롯 (선택)
 # Day-only(06–18시), 주간 눈금, 와이드 차트, 지표 표기
 
 python make_plots.py \
